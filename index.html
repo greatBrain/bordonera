@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mantenimiento y restauración de baterías acústicas en Santo Domingo</title>
+<meta name="description" content="Limpieza, mantenimiento, restauración y afinación de baterías acústicas en Santo Domingo. Para bateristas, iglesias, bandas y estudios. Envía fotos de tu kit y te oriento.">
+<!-- [REEMPLAZAR] dominio definitivo -->
+<link rel="canonical" href="https://www.tudominio.com/">
+<meta name="theme-color" content="#121210">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_DO">
+<meta property="og:title" content="Tu batería merece algo más que una afinación rápida">
+<meta property="og:description" content="Limpieza, mantenimiento, restauración y afinación de baterías acústicas en Santo Domingo. Envía fotos de tu kit.">
+<meta property="og:url" content="https://www.tudominio.com/">
+<meta property="og:image" content="https://www.tudominio.com/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Mantenimiento de baterías acústicas",
+  "description": "Limpieza, mantenimiento, restauración y afinación de baterías acústicas.",
+  "url": "https://www.tudominio.com/",
+  "image": "https://www.tudominio.com/img/og.jpg",
+  "telephone": "+1-849-623-6350",
+  "areaServed": { "@type": "City", "name": "Santo Domingo" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Santo Domingo", "addressCountry": "DO" },
+  "makesOffer": [
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Limpieza profunda de baterías acústicas" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Restauración de baterías" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mantenimiento de batería acústica" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Afinación de batería" } }
+  ]
+}
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          carbon: '#090D14',
+          grafito: '#0F172A',
+          hierro: '#1E293B',
+          acero: '#94A3B8',
+          hueso: '#F8FAFC',
+          papel: '#F1F5F9',
+          estudio: '#FFFFFF',
+          tinta: '#0F172A',
+          gris: '#475569',
+          celeste: '#38BDF8',
+          celestedark: '#0284C7',
+          verde: '#34D399',
+          verdedark: '#10B981',
+          bronce: '#38BDF8',
+          broncedeep: '#0284C7'
+        },
+        fontFamily: {
+          display: ['Outfit', 'sans-serif'],
+          sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', '"Segoe UI"', 'sans-serif']
+        },
+        letterSpacing: { label: '0.18em' }
+      }
+    }
+  }
+</script>
+<style>
+  /* Solo lo que no es práctico con utilities */
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body { background: #090D14; overflow-x: clip; }
+  img, video { max-width: 100%; }
+  h1, h2, h3 { text-wrap: balance; }
+  .num { font-variant-numeric: tabular-nums; }
+  :focus-visible { outline: 2px solid #38BDF8; outline-offset: 3px; }
+
+  /* Botón de taller: flecha que avanza */
+  .btn-arrow { transition: transform .25s ease; display: inline-block; }
+  a:hover .btn-arrow, button:hover .btn-arrow, a:focus-visible .btn-arrow { transform: translateX(5px); }
+
+  /* Before / After */
+  .ba { --pos: 50%; touch-action: pan-y; cursor: ew-resize; }
+  .ba-before { clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
+  .ba-handle { left: var(--pos); }
+  .ba:focus-within .ba-knob { outline: 2px solid #38BDF8; outline-offset: 3px; }
+
+  /* Hero con video: se desatura para respetar la paleta; entra con fundido cuando reproduce */
+  .hero-video { opacity: 0; filter: saturate(.45) contrast(1.05); transition: opacity 1.2s ease; }
+  .hero-video.is-playing { opacity: 1; }
+  .hero-shade { background:
+      linear-gradient(to top, #090D14 0%, rgba(9,13,20,.85) 30%, rgba(9,13,20,.45) 65%, rgba(9,13,20,.55) 100%),
+      linear-gradient(to right, rgba(9,13,20,.6), transparent 70%); }
+
+  /* Etapas de cada caso */
+  .etapa-on { border-color: #0F172A !important; box-shadow: inset 0 -3px 0 #38BDF8; }
+
+  /* Barra móvil */
+  .sticky-bar { transform: translateY(110%); transition: transform .3s ease; padding-bottom: env(safe-area-inset-bottom, 0px); }
+  .sticky-bar.on { transform: translateY(0); }
+
+  .nav-solid { background: rgba(9,13,20,.94); border-color: rgba(248,250,252,.1); }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition: none !important; animation: none !important; }
+  }
+</style>
+</head>
+<body class="bg-carbon text-hueso font-sans antialiased pb-16 lg:pb-0">
+
+<a href="#contenido" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:bg-hueso focus:text-tinta focus:px-4 focus:py-2">Saltar al contenido</a>
+
+<!-- ============ NAVBAR ============ -->
+<nav id="nav" aria-label="Principal" class="fixed inset-x-0 top-0 z-50 border-b border-transparent transition-colors duration-300 backdrop-blur-md" style="padding-top: env(safe-area-inset-top, 0px)">
+  <div class="mx-auto max-w-[1440px] px-4 sm:px-8 h-16 flex items-center justify-between gap-4">
+    <a href="#top" class="flex items-center gap-2.5 min-h-[44px] min-w-0" aria-label="Mantenimiento de baterías acústicas — inicio">
+      <!-- Marca provisional: vista superior de un tambor con 10 tensores -->
+      <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true" fill="none" stroke="#38BDF8">
+        <circle cx="14" cy="14" r="9.5" stroke-width="1.6"/>
+        <circle cx="14" cy="14" r="6.5" stroke-width="0.8" stroke-opacity=".5"/>
+        <g stroke="#34D399" stroke-width="1.8" stroke-linecap="square">
+          <path d="M14 1.5v2.2M14 24.3v2.2M1.5 14h2.2M24.3 14h2.2M5.2 5.2l1.5 1.5M21.3 21.3l1.5 1.5M5.2 22.8l1.5-1.5M21.3 6.7l1.5-1.5"/>
+        </g>
+      </svg>
+      <span class="font-display font-extrabold text-lg uppercase tracking-wider text-white">Bordonera</span>
+    </a>
+
+    <ul class="hidden lg:flex items-center gap-6 xl:gap-9 text-[13px] uppercase tracking-label font-medium">
+      <li><a class="py-2 text-white/90 hover:text-celeste transition-colors" href="#trabajos">Trabajos realizados</a></li>
+      <li><a class="py-2 text-white/90 hover:text-celeste transition-colors" href="#servicios">Servicios</a></li>
+      <li><a class="py-2 text-white/90 hover:text-celeste transition-colors" href="#proceso">Proceso</a></li>
+      <li><a class="py-2 text-white/90 hover:text-celeste transition-colors" href="#contacto">Contacto</a></li>
+    </ul>
+
+    <div class="flex items-center gap-2">      
+      <button id="menuBtn" type="button" class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-xl border border-white/20" aria-expanded="false" aria-controls="menuMovil" aria-label="Abrir menú">
+        <span class="block w-5 h-[2px] bg-celeste shadow-[0_6px_0_#38BDF8,0_-6px_0_#38BDF8]" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+  <div id="menuMovil" hidden class="lg:hidden border-t border-white/10 bg-carbon/95 backdrop-blur-xl">
+    <ul class="px-4 py-4 grid gap-2 font-display font-bold uppercase text-2xl">
+      <li><a class="block py-2 text-white hover:text-celeste transition-colors" href="#trabajos">Trabajos realizados</a></li>
+      <li><a class="block py-2 text-white hover:text-celeste transition-colors" href="#servicios">Servicios</a></li>
+      <li><a class="block py-2 text-white hover:text-celeste transition-colors" href="#proceso">Proceso</a></li>
+      <li><a class="block py-2 text-white hover:text-celeste transition-colors" href="#contacto">Contacto</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="contenido">
+
+
+<!-- ============ HERO (video) ============ -->
+<!-- Video: "A drum equipment" — RDNE Stock project, Pexels (licencia libre).
+     RECOMENDADO: descargar el .mp4 y alojarlo en /video/hero.mp4 para no depender de Pexels. -->
+<header id="top" class="relative isolate overflow-hidden bg-carbon flex flex-col justify-center min-h-[580px] sm:min-h-[680px]">
+  <video id="heroVideo" class="hero-video absolute inset-0 -z-20 w-full h-full object-cover" autoplay muted loop playsinline preload="metadata" aria-hidden="true" tabindex="-1">
+    <source src="https://videos.pexels.com/video-files/8197849/8197849-hd_1920_1080_30fps.mp4" type="video/mp4">
+  </video>
+  <div class="hero-shade absolute inset-0 -z-10" aria-hidden="true"></div>
+
+  <div class="mx-auto w-full max-w-[1440px] px-4 sm:px-8 pt-20 sm:pt-24 pb-12 sm:pb-16">
+    <!-- Tamaño fluido y equilibrado: respiro visual y sin espacio vertical excesivo -->
+    <h1 class="font-display font-extrabold uppercase leading-[1.12] tracking-tight text-[clamp(2rem,4.8vw,3.75rem)] max-w-[18ch]">
+      Tu batería merece <span class="text-celeste">algo más</span> que una afinación rápida
+    </h1>
+    <p class="mt-4 text-[12px] sm:text-[13px] uppercase tracking-label text-slate-300 font-medium">Iglesias · Bandas · Estudios · Bateristas independientes</p>
+    <div class="mt-7 sm:mt-8 grid gap-6 lg:grid-cols-12 lg:items-end">
+      <div class="lg:col-span-6">        
+        <p class="text-base sm:text-lg leading-relaxed text-slate-300 max-w-[46ch]">
+          Servicios de limpieza profunda, restauración de herrajes y maderas, mantenimiento y afinación acústica para devolverle la vida y el sonido profesional a tu kit.
+        </p>        
+      </div>
+      <div class="lg:col-span-6 flex flex-col sm:flex-row sm:flex-wrap gap-3.5 lg:justify-end">
+        <a data-wa href="https://wa.me/18496236350" target="_blank" rel="noopener"
+           class="group inline-flex items-center justify-between gap-6 min-h-[52px] px-7 bg-celeste text-carbon border border-celeste hover:bg-white hover:border-white font-display font-extrabold uppercase tracking-wider text-base sm:text-lg transition-all shadow-lg shadow-sky-500/20 rounded-xl w-full sm:w-auto">
+          Contáctame <span class="btn-arrow" aria-hidden="true">→</span>
+        </a>
+        <a href="#trabajos-realizados"
+           class="group inline-flex items-center justify-between gap-6 min-h-[52px] px-7 border border-white/30 hover:border-celeste bg-carbon/50 backdrop-blur-sm text-white font-display font-bold uppercase tracking-wider text-base sm:text-lg transition-colors w-full sm:w-auto rounded-xl">
+          Ver trabajos <span class="btn-arrow" aria-hidden="true">↓</span>
+        </a>
+      </div>
+    </div>
+  </div>  
+</header>
+
+<!-- ============ ANTES / DESPUÉS (trabajo real) ============ -->
+<section id="trabajos" aria-labelledby="ba-title" class="bg-estudio text-tinta scroll-mt-16">
+  <div class="mx-auto max-w-[1440px] px-4 sm:px-8 py-16 sm:py-20 xl:py-24 grid gap-10 lg:gap-12 lg:grid-cols-12 lg:items-center">
+    <div class="lg:col-span-5 lg:order-1 order-2">      
+      <span class="inline-block text-xs font-bold uppercase tracking-wider text-white bg-black px-3 py-1 rounded-md mb-2">Transformación completa</span>
+      <h2 id="ba-title" class="mt-2 font-display font-extrabold uppercase leading-tight text-3xl sm:text-4xl lg:text-5xl">
+        Un cambio de <span class="inline-block bg-carbon text-celeste px-3 py-1 rounded-xl border border-sky-500/25">180 grados</span>
+      </h2>
+      <h3 class="mt-4 font-display font-bold uppercase leading-tight text-lg sm:text-xl lg:text-2xl">Proyecto propio de restauración</h3>
+      <p class="mt-4 text-slate-600 text-base sm:text-lg leading-relaxed max-w-[42ch]">
+        Te presento mi kit personal.
+        Es un kit de gama económica con más de 25 años de servicio que llegó a mis manos en un estado crítico, con los cascos deteriorados y evidentes señales del paso del tiempo.
+        A simple vista, no parecía tener mucho que ofrecer. Pero detrás de ese desgaste todavía había una batería con potencial que merecía una segunda oportunidad.
+        Después de mucho trabajo y esfuerzo, este es el resultado.
+        <span class="inline-block text-black font-extrabold py-1">Arrastra el divisor y compruébalo tú mismo.</span>
+      </p>
+      <dl class="mt-8 grid gap-0 border-t border-slate-200 text-[15px]">
+        <div class="grid grid-cols-[5.5rem_1fr] sm:grid-cols-[6.5rem_1fr] gap-4 py-3.5 border-b border-slate-200"><dt class="text-[13px] sm:text-[14px] uppercase text-slate-500 pt-0.5 font-bold">Pieza</dt><dd class="font-bold text-slate-900">Kit completo: bombo y toms.</dd></div>
+        <div class="grid grid-cols-[5.5rem_1fr] sm:grid-cols-[6.5rem_1fr] gap-4 py-3.5 border-b border-slate-200"><dt class="text-[13px] sm:text-[14px] uppercase text-slate-500 pt-0.5 font-bold">Antes</dt><dd class="font-bold text-slate-700">Acabado original gastado, cascos desnudos y manchados</dd></div>
+        <div class="grid grid-cols-[5.5rem_1fr] sm:grid-cols-[6.5rem_1fr] gap-4 py-3.5 border-b border-slate-200"><dt class="text-[13px] sm:text-[14px] uppercase text-slate-500 pt-0.5 font-bold">Después</dt><dd class="font-bold text-slate-900 font-semibold">Acabado verde mate con trazos a mano y herrajes montados</dd></div>
+      </dl>
+
+      <a data-wa data-msg="Hola, vi el trabajo del kit verde y me gustaría algo así para mi batería. Tengo fotos para enviarte." href="https://wa.me/18496236350" target="_blank" rel="noopener"
+         class="group mt-8 inline-flex items-center justify-between gap-6 min-h-[56px] px-7 bg-carbon text-white hover:bg-celeste hover:text-carbon font-display font-extrabold uppercase tracking-wider text-base sm:text-lg transition-all rounded-xl shadow-md w-full sm:w-auto">
+        Quiero algo así <span class="btn-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+
+    <div class="lg:col-span-7 lg:order-2 order-1">
+      <!-- Mismas dimensiones (cuadradas) para que el divisor alinee. Reemplazar en img/ -->
+      <div class="ba relative rounded-xl aspect-square w-full max-w-[760px] lg:max-w-[min(760px,calc(100svh_-_7rem))] mx-auto overflow-hidden bg-white" data-ba>
+        <img src="img/set-after-2-1024.webp" srcset="img/set-after-2-640.webp 640w, img/set-after-2-1024.webp 1024w, img/set-after-2-1600.webp 1600w" sizes="(min-width:1024px) 760px, 100vw"
+             width="1024" height="1024" loading="lazy" decoding="async" draggable="false"
+             alt="Después: bombo y dos toms con acabado verde mate, trazos negros pintados a mano y herrajes cromados."
+             class="absolute inset-0 w-full h-full object-cover pointer-events-none">
+        <div class="ba-before absolute inset-0 bg-white">
+          <img src="img/before-1024.webp" srcset="img/before-640.webp 640w, img/before-1024.webp 1024w" sizes="(min-width:1024px) 760px, 100vw"
+               width="1024" height="1024" loading="lazy" decoding="async" draggable="false"
+               alt="Antes: un casco de madera desnudo y manchado y otro con acabado burdeos gastado y rayado."
+               class="absolute inset-0 w-full h-full object-cover pointer-events-none">
+        </div>
+        <span data-ba-label="antes" class="absolute top-3 left-3 sm:top-4 sm:left-4 text-gray-800 px-3 py-1.5 font-display font-bold uppercase tracking-wider text-base sm:text-lg pointer-events-none transition-opacity duration-300">Antes</span>
+        <span data-ba-label="despues" class="absolute top-3 right-3 sm:top-4 sm:right-4 text-gray-800 px-3 py-1.5 font-display font-bold uppercase tracking-wider text-base sm:text-lg pointer-events-none transition-opacity duration-300">Después</span>
+        <div class="ba-handle absolute top-0 bottom-0 w-0 pointer-events-none" aria-hidden="true">
+          <div class="absolute inset-y-0 -left-px w-[2px] bg-tinta"></div>
+          <div class="ba-knob absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-xl bg-tinta text-hueso flex items-center justify-center font-display font-extrabold text-xl">‹ ›</div>
+        </div>
+        <label class="sr-only" for="baRange">Comparar antes y después</label>
+        <input id="baRange" type="range" min="0" max="100" value="50" class="sr-only" aria-valuetext="50% antes">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CASOS DE ÉXITO · carrusel manual (sin autoplay) ============ -->
+<section aria-labelledby="casos-title" class="bg-estudio text-tinta border-t border-tinta/10" id="trabajos-realizados">
+  <div class="mx-auto max-w-[1440px] px-4 sm:px-8 py-16 sm:py-20 xl:py-24">
+
+    <!-- Encabezado + controles -->
+    <div class="flex flex-wrap items-end justify-between gap-6 mb-8 sm:mb-10">
+      <div>
+        <span class="inline-block text-xs font-bold uppercase tracking-wider text-white bg-black px-3 py-1 rounded-md mb-2">Casos de éxito</span>
+        <h2 id="casos-title" class="mt-2 font-display font-extrabold uppercase leading-tight text-3xl sm:text-4xl lg:text-5xl">Trabajos realizados</h2>
+        <p class="mt-3 text-slate-600 max-w-[44ch] text-base">Usa las flechas o desliza para ver cada caso. Toca cada etapa para verla.</p>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <p class="font-display font-bold text-2xl num tabular-nums" aria-live="polite">
+          <span id="casosActual" class="text-slate-900">01</span><span class="text-slate-400"> / </span><span id="casosTotal" class="text-slate-500">01</span>
+        </p>
+        <div class="flex gap-2">
+          <button id="casosPrev" type="button" aria-controls="casosLista" aria-label="Caso anterior"
+                  class="w-12 h-12 rounded-xl border border-slate-300 hover:border-slate-900 hover:bg-slate-900 hover:text-white disabled:opacity-30 disabled:pointer-events-none flex items-center justify-center font-display font-extrabold text-xl transition-colors">←</button>
+          <button id="casosNext" type="button" aria-controls="casosLista" aria-label="Caso siguiente"
+                  class="w-12 h-12 rounded-xl border border-slate-900 bg-slate-900 text-white hover:bg-celeste hover:border-celeste hover:text-carbon disabled:opacity-30 disabled:pointer-events-none flex items-center justify-center font-display font-extrabold text-xl transition-colors">→</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pista del carrusel: los casos se generan desde CASOS (mismo id que antes) -->
+    <div id="casosLista" tabindex="0" role="region" aria-roledescription="carrusel" aria-label="Casos de éxito"
+         class="relative flex items-start gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth overscroll-x-contain rounded-xl
+                [scrollbar-width:none] [&::-webkit-scrollbar]:hidden focus-visible:outline-offset-8"></div>
+
+    <!-- Indicadores -->
+    <div id="casosDots" class="mt-8 flex gap-2" aria-label="Ir al caso"></div>
+
+    <!-- Invitación: el siguiente caso -->
+    <div class="mt-12 xl:mt-16 grid gap-6 lg:grid-cols-12 items-center bg-carbon text-hueso p-6 sm:p-10 rounded-2xl border border-white/10">      
+      <div class="lg:col-span-7">
+        <span class="inline-block text-xs font-bold uppercase tracking-wider text-white bg-black px-3 py-1 rounded-md mb-2">Tu instrumento en las mejores manos</span>
+        <h3 class="mt-2 font-display font-extrabold uppercase text-2xl sm:text-3xl lg:text-4xl leading-snug">La tuya puede ser el próximo caso</h3>
+        <p class="mt-3 text-slate-300 max-w-full text-base">Mándame fotos de cómo está hoy. Te digo qué necesita y qué se puede lograr.</p>
+      </div>
+      <a data-wa data-msg="Hola, vi tus trabajos de restauración y quisiera que mi batería sea la próxima. Tengo fotos para enviarte." href="https://wa.me/18496236350" target="_blank" rel="noopener"
+         class="lg:col-span-5 group inline-flex items-center justify-between gap-6 min-h-[54px] px-7 whitespace-nowrap bg-celeste text-carbon hover:bg-white font-display font-extrabold uppercase tracking-wider text-base sm:text-lg transition-colors rounded-xl shadow-lg shadow-sky-500/20">
+        Envíame fotos <span class="btn-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+
+    <!-- Plantilla de cada caso (cada uno es una diapositiva de ancho completo) -->
+    <template id="casoTpl">
+      <article role="group" aria-roledescription="caso" class="caso-slide shrink-0 w-full snap-start grid gap-6 lg:gap-10 lg:grid-cols-12 border-t border-tinta pt-6">
+        <div class="lg:col-span-7">
+          <!-- En laptops la foto se limita a la altura visible de la pantalla -->
+          <div class="caso-frame relative aspect-square sm:aspect-[4/3] lg:aspect-auto lg:h-[min(640px,calc(100svh_-_11rem))] bg-white overflow-hidden rounded-xl border border-tinta/10"></div>
+        </div>
+        <div class="lg:col-span-5 flex flex-col min-w-0">
+          <div class="flex items-baseline gap-4">
+            <span class="caso-num font-display font-extrabold text-5xl xl:text-6xl text-broncedeep num leading-none"></span>
+            <span class="caso-lugar text-[11px] uppercase tracking-label text-gris"></span>
+          </div>
+          <h3 class="caso-titulo mt-3 font-display font-extrabold uppercase text-3xl xl:text-4xl leading-[0.92]"></h3>
+          <p class="caso-resumen mt-3 text-gris leading-relaxed"></p>
+          <div class="caso-etapas mt-5 grid grid-cols-4 gap-2" role="tablist" aria-label="Etapas del trabajo"></div>
+          <p class="mt-6 text-[11px] uppercase tracking-label text-gris">Trabajo realizado</p>
+          <ul class="caso-trabajos mt-2 grid gap-1.5 text-[15px]"></ul>
+        </div>
+      </article>
+    </template>
+  </div>  
+</section>
+
+
+<!-- ============ SERVICIOS (FONDO GRIS CLARO + CARDS LIMPIAS) ============ -->
+<section id="servicios" aria-labelledby="diag-title" class="bg-slate-100 text-slate-900 scroll-mt-16 border-t border-slate-200">
+  <div class="mx-auto max-w-[1440px] px-4 sm:px-8 py-16 sm:py-24">
+    <div class="max-w-3xl mb-12 sm:mb-16">
+      <span class="inline-block text-xs font-bold uppercase tracking-wider text-white bg-black px-3 py-1 rounded-md mb-2">Servicios</span>
+      <h2 id="diag-title" class="mt-2 font-display font-extrabold uppercase leading-tight text-3xl sm:text-4xl lg:text-5xl text-slate-900">Lo que te ofrezco</h2>
+      <p class="mt-3 text-slate-600 text-base sm:text-lg max-w-[54ch] leading-relaxed">
+        Soluciones especializadas para devolver la resonancia, pureza estética y confiabilidad mecánica a tu instrumento.
+      </p>
+    </div>
+
+    <!-- ============ GRID DE 4 SERVICIOS CLAVE LIMPIAS ============ -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 sm:mb-20">
+      <!-- Servicio 1 -->
+      <div class="rounded-2xl bg-white border border-slate-200/90 hover:border-slate-400 p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 shadow-sm hover:shadow-md">
+        <div>
+          <div class="w-12 h-12 rounded-xl bg-slate-100 border border-slate-200 text-slate-900 flex items-center justify-center mb-5">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+            </svg>
+          </div>
+          <span class="inline-block text-xs font-bold uppercase tracking-wider text-white bg-black px-2.5 py-1 rounded-md">Básico esencial</span>
+          <h3 class="mt-3 font-display font-extrabold uppercase text-xl text-slate-900">Limpieza Profunda</h3>
+          <p class="mt-2.5 text-slate-700 font-semibold text-sm leading-relaxed">Desarme de aros y parches, remoción de polvo incrustado y suciedad en general en madera y cromo para un look impecable.</p>
+        </div>
+        <a data-wa data-msg="Hola, me interesa el servicio de Limpieza Profunda para mi batería. Tengo fotos para enviarte." href="https://wa.me/18496236350" target="_blank" rel="noopener"
+           class="mt-6 inline-flex items-center justify-between text-sm font-display font-bold uppercase tracking-wider text-slate-900 hover:text-sky-600 transition-colors">
+          Consultar servicio <span class="btn-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <!-- Servicio 2 -->
+      <div class="rounded-2xl bg-white border border-slate-200/90 hover:border-slate-400 p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 shadow-sm hover:shadow-md">
+        <div>
+          <div class="w-12 h-12 rounded-xl bg-slate-100 border border-slate-200 text-slate-900 flex items-center justify-center mb-5">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">              
+              <path d="M9 7h6v2H9z"/>
+              <path d="M11 7V4h4v3"/>
+              <path d="M15 4h3"/>
+              <path d="M18 4l2-1"/>              
+              <path d="M7 9h10v11H7z"/>
+              <path d="M9 12h6"/>
+              <path d="M9 15h6"/>
+              <path d="M9 18h4"/>              
+              <path d="M17 10h2a1 1 0 0 1 1 1v1"/>
+              <path d="M20 12h2"/>
+            </svg>
+          </div>
+          <span class="inline-block text-xs font-bold uppercase tracking-wider text-white bg-black px-2.5 py-1 rounded-md">Recuperación</span>
+          <h3 class="mt-3 font-display font-extrabold uppercase text-xl text-slate-900">Tratamiento de Óxido</h3>
+          <p class="mt-2.5 text-slate-700 text-sm font-semibold leading-relaxed">Eliminación de corrosión en herrajes, pulido de cromados y lubricación preventiva para evitar el desgaste prematuro.</p>
+        </div>
+        <a data-wa data-msg="Hola, me interesa el servicio de Tratamiento de Óxido para los herrajes de mi batería. Tengo fotos para enviarte." href="https://wa.me/18496236350" target="_blank" rel="noopener"
+           class="mt-6 inline-flex items-center justify-between text-sm font-display font-bold uppercase tracking-wider text-slate-900 hover:text-sky-600 transition-colors">
+          Consultar servicio <span class="btn-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <!-- Servicio 3 -->
+      <div class="rounded-2xl bg-white border border-slate-200/90 hover:border-slate-400 p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 shadow-sm hover:shadow-md">
+        <div>
+          <div class="w-12 h-12 rounded-xl bg-slate-100 border border-slate-200 text-slate-900 flex items-center justify-center mb-5">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+          </div>
+          <span class="inline-block text-xs font-bold uppercase tracking-wider text-white bg-black px-2.5 py-1 rounded-md">Ajuste mecánico</span>
+          <h3 class="mt-3 font-display font-extrabold uppercase text-xl text-slate-900">Mantenimiento Integral</h3>
+          <p class="mt-2.5 text-slate-700 font-semibold text-sm leading-relaxed">Revisión de <a href="https://www.thomann.es/onlineexpert_page_cascos_de_bateria_borde_de_apoyo.html" class="font-semibold underline text-sky-900" target="_blank">bordes de apoyo</a>, ajuste de bellotas internas, cambio de fieltros y estabilidad total.</p>
+        </div>
+        <a data-wa data-msg="Hola, me interesa el Mantenimiento Integral de mi batería. Tengo fotos para enviarte." href="https://wa.me/18496236350" target="_blank" rel="noopener"
+           class="mt-6 inline-flex items-center justify-between text-sm font-display font-bold uppercase tracking-wider text-slate-900 hover:text-sky-600 transition-colors">
+          Consultar servicio <span class="btn-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <!-- Servicio 4 -->
+      <div class="rounded-2xl bg-white border border-slate-200/90 hover:border-slate-400 p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 shadow-sm hover:shadow-md">
+        <div>
+          <div class="w-12 h-12 rounded-xl bg-slate-100 border border-slate-200 text-slate-900 flex items-center justify-center mb-5">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <ellipse cx="12" cy="8" rx="8" ry="4"/>
+              <path d="M4 8v7c0 2.21 3.58 4 8 4s8-1.79 8-4V8"/>
+            </svg>
+          </div>
+          <span class="inline-block text-xs font-bold uppercase tracking-wider text-white bg-black px-2.5 py-1 rounded-md">Acústica pura</span>
+          <h3 class="mt-3 font-display font-extrabold uppercase text-xl text-slate-900">Afinación Profesional</h3>
+          <p class="mt-2.5 text-slate-700 font-semibold text-sm leading-relaxed">Calibración por intervalos armónicos entre toms, bombo y redoblante para sonido nítido en vivo, iglesia o estudio.</p>
+        </div>
+        <a data-wa data-msg="Hola, necesito una Afinación Profesional para mi batería. ¿Cómo podemos coordinar?" href="https://wa.me/18496236350" target="_blank" rel="noopener"
+           class="mt-6 inline-flex items-center justify-between text-sm font-display font-bold uppercase tracking-wider text-slate-900 hover:text-sky-600 transition-colors">
+          Consultar servicio <span class="btn-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Sub-encabezado: Diagnóstico guiado -->
+    <div class="border-t border-slate-200 pt-12 mb-8">
+      <span class="inline-block text-xs font-bold uppercase tracking-wider text-white bg-black px-3 py-1 rounded-md mb-2">Diagnóstico guiado</span>
+      <h3 class="mt-2 font-display font-extrabold uppercase leading-tight text-2xl sm:text-3xl text-slate-900">¿Cuál se parece a tu situación actual?</h3>
+      <p class="mt-2 text-slate-600 text-sm sm:text-base">Haz clic en cada caso para ver la recomendación directa.</p>
+    </div>
+
+    <div class="relative lg:min-h-[440px]" id="diag">
+      <ul class="lg:w-[55%] xl:w-[54%] border-t border-slate-200">
+        <!-- Cada situación: botón + etiqueta de taller con la orientación -->
+        <li class="border-b border-slate-200">
+          <button type="button" class="diag-btn w-full text-left flex items-center justify-between gap-4 py-5 sm:py-6 min-h-[64px] group" aria-expanded="true" aria-controls="d1">
+            <span class="font-display font-bold text-[1.4rem] sm:text-3xl lg:text-[1.8rem] leading-tight text-slate-900 group-hover:text-sky-600 transition-colors">“Está muy sucia”</span>
+            <span class="diag-mark font-display text-2xl text-slate-900 shrink-0" aria-hidden="true">→</span>
+          </button>
+          <div id="d1" class="diag-panel pb-6 lg:pb-0 lg:absolute lg:right-0 lg:top-0 lg:w-[41%] xl:w-[40%]">
+            <div class="bg-white text-slate-900 rounded-2xl border border-slate-200 shadow-md overflow-hidden">
+              <div class="p-6 sm:p-8">                
+                <span class="inline-block text-xs font-bold uppercase tracking-wider text-white bg-black px-3 py-1 rounded-md mb-2">Lo que necesita</span>
+                <p class="mt-1 font-display font-extrabold uppercase text-2xl sm:text-3xl leading-snug text-slate-900">Limpieza + mantenimiento</p>
+                <p class="mt-4 text-slate-600 leading-relaxed text-sm sm:text-base">La suciedad acumulada en parches, aros y herrajes se trata con limpieza por partes. Con fotos veo si además conviene revisar componentes mecánicos.</p>
+                <a data-wa data-msg="Hola, vi tus trabajos de mantenimiento de baterías. Mi batería está muy sucia y quisiera saber qué necesita. Tengo fotos para enviarte." href="https://wa.me/18496236350" target="_blank" rel="noopener" class="mt-6 flex items-center justify-between min-h-[50px] px-6 bg-slate-900 text-white hover:bg-sky-500 hover:text-white font-display font-bold uppercase tracking-wider text-base transition-colors rounded-xl shadow-sm">Quiero consultar <span class="btn-arrow" aria-hidden="true">→</span></a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="border-b border-slate-200">
+          <button type="button" class="diag-btn w-full text-left flex items-center justify-between gap-4 py-5 sm:py-6 min-h-[64px] group" aria-expanded="false" aria-controls="d2">
+            <span class="font-display font-bold text-[1.4rem] sm:text-3xl lg:text-[1.8rem] leading-tight text-slate-900 group-hover:text-sky-600 transition-colors">“No consigo que suene bien”</span>
+            <span class="diag-mark font-display text-2xl text-slate-900 shrink-0" aria-hidden="true">→</span>
+          </button>
+          <div id="d2" class="diag-panel pb-6 lg:pb-0 lg:absolute lg:right-0 lg:top-0 lg:w-[41%] xl:w-[40%]" hidden>
+            <div class="bg-white text-slate-900 rounded-2xl border border-slate-200 shadow-md overflow-hidden">
+              <div class="p-6 sm:p-8">                
+                <span class="inline-block text-xs font-bold uppercase tracking-wider text-white bg-black px-3 py-1 rounded-md mb-2">Lo que necesita</span>
+                <p class="mt-1 font-display font-extrabold uppercase text-2xl sm:text-3xl leading-snug text-slate-900">Revisión + afinación</p>
+                <p class="mt-4 text-slate-600 leading-relaxed text-sm sm:text-base">A veces es la afinación; otras, un parche gastado, un tensor que no sostiene o un aro deformado. Primero se revisa, después se afina.</p>
+                <a data-wa data-msg="Hola, vi tus trabajos. No consigo que mi batería suene bien y quisiera que la revises. Tengo fotos para enviarte." href="https://wa.me/18496236350" target="_blank" rel="noopener" class="mt-6 flex items-center justify-between min-h-[50px] px-6 bg-slate-900 text-white hover:bg-sky-500 hover:text-white font-display font-bold uppercase tracking-wider text-base transition-colors rounded-xl shadow-sm">Quiero consultar <span class="btn-arrow" aria-hidden="true">→</span></a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="border-b border-slate-200">
+          <button type="button" class="diag-btn w-full text-left flex items-center justify-between gap-4 py-5 sm:py-6 min-h-[64px] group" aria-expanded="false" aria-controls="d3">
+            <span class="font-display font-bold text-[1.4rem] sm:text-3xl lg:text-[1.8rem] leading-tight text-slate-900 group-hover:text-sky-600 transition-colors">“Tiene óxido por todos lados”</span>
+            <span class="diag-mark font-display text-2xl text-slate-900 shrink-0" aria-hidden="true">→</span>
+          </button>
+          <div id="d3" class="diag-panel pb-6 lg:pb-0 lg:absolute lg:right-0 lg:top-0 lg:w-[41%] xl:w-[40%]" hidden>
+            <div class="bg-white text-slate-900 rounded-2xl border border-slate-200 shadow-md overflow-hidden">
+              <div class="p-6 sm:p-8">                
+                <span class="inline-block text-xs font-bold uppercase tracking-wider text-white bg-black px-3 py-1 rounded-md mb-2">Lo que necesita</span>
+                <p class="mt-1 font-display font-extrabold uppercase text-2xl sm:text-3xl leading-snug text-slate-900">Restauración / tratamiento</p>
+                <p class="mt-4 text-slate-600 leading-relaxed text-sm sm:text-base">Depende de cuánto ha avanzado. El óxido superficial suele tratarse; el profundo puede dejar marca. Las fotos de cerca ayudan a saberlo.</p>
+                <a data-wa data-msg="Hola, vi tus trabajos. Mi batería tiene óxido en algunas piezas y quisiera saber si se puede tratar. Tengo fotos para enviarte." href="https://wa.me/18496236350" target="_blank" rel="noopener" class="mt-6 flex items-center justify-between min-h-[50px] px-6 bg-slate-900 text-white hover:bg-sky-500 hover:text-white font-display font-bold uppercase tracking-wider text-base transition-colors rounded-xl shadow-sm">Quiero consultar <span class="btn-arrow" aria-hidden="true">→</span></a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="border-b border-slate-200">
+          <button type="button" class="diag-btn w-full text-left flex items-center justify-between gap-4 py-5 sm:py-6 min-h-[64px] group" aria-expanded="false" aria-controls="d4">
+            <span class="font-display font-bold text-[1.4rem] sm:text-3xl lg:text-[1.8rem] leading-tight text-slate-900 group-hover:text-sky-600 transition-colors">“Lleva años sin mantenimiento”</span>
+            <span class="diag-mark font-display text-2xl text-slate-900 shrink-0" aria-hidden="true">→</span>
+          </button>
+          <div id="d4" class="diag-panel pb-6 lg:pb-0 lg:absolute lg:right-0 lg:top-0 lg:w-[41%] xl:w-[40%]" hidden>
+            <div class="bg-white text-slate-900 rounded-2xl border border-slate-200 shadow-md overflow-hidden">
+              <div class="p-6 sm:p-8">                
+                <span class="inline-block text-xs font-bold uppercase tracking-wider text-white bg-black px-3 py-1 rounded-md mb-2">Lo que necesita</span>
+                <p class="mt-1 font-display font-extrabold uppercase text-2xl sm:text-3xl leading-snug text-slate-900">Evaluación + mantenimiento profundo</p>
+                <p class="mt-4 text-slate-600 leading-relaxed text-sm sm:text-base">Es lo más común en kits de iglesia y salas de ensayo: años de uso semanal y poco cuidado. Se evalúa pieza por pieza antes de intervenir.</p>
+                <a data-wa data-msg="Hola, vi tus trabajos. Mi batería lleva años sin mantenimiento y quisiera una evaluación. Tengo fotos para enviarte." href="https://wa.me/18496236350" target="_blank" rel="noopener" class="mt-6 flex items-center justify-between min-h-[50px] px-6 bg-slate-900 text-white hover:bg-sky-500 hover:text-white font-display font-bold uppercase tracking-wider text-base transition-colors rounded-xl shadow-sm">Quiero consultar <span class="btn-arrow" aria-hidden="true">→</span></a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="border-b border-slate-200">
+          <button type="button" class="diag-btn w-full text-left flex items-center justify-between gap-4 py-5 sm:py-6 min-h-[64px] group" aria-expanded="false" aria-controls="d5">
+            <span class="font-display font-bold text-[1.4rem] sm:text-3xl lg:text-[1.8rem] leading-tight text-slate-900 group-hover:text-sky-600 transition-colors">“Necesito dejarla lista para tocar”</span>
+            <span class="diag-mark font-display text-2xl text-slate-900 shrink-0" aria-hidden="true">→</span>
+          </button>
+          <div id="d5" class="diag-panel pb-6 lg:pb-0 lg:absolute lg:right-0 lg:top-0 lg:w-[41%] xl:w-[40%]" hidden>
+            <div class="bg-white text-slate-900 rounded-2xl border border-slate-200 shadow-md overflow-hidden">
+              <div class="p-6 sm:p-8">
+                <span class="inline-block text-xs font-bold uppercase tracking-wider text-white bg-black px-3 py-1 rounded-md mb-2">Lo que necesita</span>
+                <p class="mt-1 font-display font-extrabold uppercase text-2xl sm:text-3xl leading-snug text-slate-900">Puesta a punto</p>
+                <p class="mt-4 text-slate-600 leading-relaxed text-sm sm:text-base">Ajuste general, revisión de herrajes y afinación para que el kit responda como debe antes de un servicio, ensayo o grabación.</p>
+                <a data-wa data-msg="Hola, vi tus trabajos. Necesito dejar mi batería lista para tocar. ¿Me puedes orientar? Tengo fotos para enviarte." href="https://wa.me/18496236350" target="_blank" rel="noopener" class="mt-6 flex items-center justify-between min-h-[50px] px-6 bg-slate-900 text-white hover:bg-sky-500 hover:text-white font-display font-bold uppercase tracking-wider text-base transition-colors rounded-xl shadow-sm">Quiero consultar <span class="btn-arrow" aria-hidden="true">→</span></a>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESO + HONESTIDAD (LÍNEA DE TIEMPO) ============ -->
+<section id="proceso" aria-labelledby="proc-title" class="bg-white/95 text-tinta scroll-mt-16 overflow-hidden border-t border-slate-200">
+  <div class="mx-auto max-w-[1440px] px-4 sm:px-8 py-16 sm:py-20 xl:py-24">
+    <span class="inline-block text-xs font-bold uppercase tracking-wider text-white bg-black px-3 py-1 rounded-md mb-2">Proceso</span>
+    <h2 id="proc-title" class="mt-2 font-display font-extrabold uppercase leading-tight text-3xl sm:text-4xl lg:text-5xl">Así trabajo</h2>
+    <p class="mt-3 text-base font-semibold sm:text-xl text-gris leading-relaxed max-w-full">Hago una inspección del estado del instrumento antes de quitar un solo tornillo.</p>
+
+    <!-- regla de medición: el proceso es una secuencia real -->
+    <div class="mt-10 sm:mt-14 h-3 border-t-2 border-tinta" aria-hidden="true"
+         style="background-image: repeating-linear-gradient(90deg, #1A1916 0 1px, transparent 1px 12.5%), repeating-linear-gradient(90deg, rgba(26,25,22,.35) 0 1px, transparent 1px 2.5%); background-size: 100% 100%, 100% 55%; background-repeat: no-repeat;"></div>
+
+    <!-- 3 Fases en Timeline sin cards -->
+    <ol aria-label="Pasos del proceso"
+        class="mt-6 -mx-4 px-4 scroll-px-4
+               grid grid-flow-col auto-cols-max gap-8 overflow-x-auto overscroll-x-contain snap-x snap-mandatory
+               [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
+               sm:mx-0 sm:px-0 sm:grid-flow-row sm:auto-cols-auto sm:grid-cols-3 sm:overflow-visible sm:snap-none
+               lg:grid-cols-3 lg:gap-8">
+      <li class="max-w-[78vw] snap-start sm:max-w-none">
+        <div class="h-12 flex items-center text-slate-900" aria-hidden="true">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+            <rect x="8" y="2" width="8" height="4" rx="1"/>
+            <path d="m9 14 2 2 4-4"/>
+          </svg>
+        </div>
+        <h3 class="mt-3 font-display font-extrabold uppercase text-2xl text-slate-900">Evalúo</h3>
+        <p class="mt-2 text-slate-700 font-semibold text-sm sm:text-base leading-relaxed max-w-[34ch]">
+          Inspecciono minuciosamente cada parte de tu kit antes de tocarlo: estado de los cascos de madera, bordes de contacto (bearing edges), tensión de parches, alineación de aros y nivel de óxido en tensores y herrajes.
+        </p>
+      </li>
+      <li class="max-w-[78vw] snap-start sm:max-w-none">
+        <div class="h-12 flex items-center text-slate-900" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+        </div>
+        <h3 class="mt-3 font-display font-extrabold uppercase text-2xl text-slate-900">Preparo y Restauro</h3>
+        <p class="mt-2 text-slate-700 font-semibold text-sm sm:text-base leading-relaxed max-w-[34ch]">
+          Desmonto ordenadamente cada componente mecánico. Realizo desoxidación profunda y pulido de piezas metálicas, lubricación de roscas con grasa de litio, limpieza integral y tratamiento para recuperar el brillo y la vida de la madera.
+        </p>
+      </li>
+      <li class="max-w-[78vw] snap-start sm:max-w-none">
+        <div class="h-12 flex items-center text-slate-900" aria-hidden="true">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <ellipse cx="12" cy="8" rx="8" ry="4"/>
+            <path d="M4 8v7c0 2.21 3.58 4 8 4s8-1.79 8-4V8"/>
+            <path d="M7 11.5v6.5M17 11.5v6.5M12 12v7" stroke-width="1.2" stroke-opacity="0.7"/>
+          </svg>
+        </div>
+        <h3 class="mt-3 font-display font-extrabold uppercase text-2xl text-slate-900">Afino</h3>
+        <p class="mt-2 text-slate-700 font-semibold text-sm sm:text-base leading-relaxed max-w-[34ch]">
+          Calibro con precisión la tensión de parches batidores y resonantes. Armonizo los intervalos tonales entre bombo, toms y redoblante, eliminando sobretonos desagradables para que tu batería responda con máxima definición y cuerpo.
+        </p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+</main>
+
+<!-- El menú "Contacto" apunta aquí (la sección de contacto ya no existe en esta versión) -->
+<!-- ============ FOOTER CON PROTAGONISMO ============ -->
+<footer id="contacto" class="bg-[#060910] text-hueso border-t border-white/10 scroll-mt-16 pt-16 pb-12">
+  <div class="mx-auto max-w-[1440px] px-4 sm:px-8">
+    <!-- Bloque de llamada y confianza -->
+    <div class="grid gap-8 lg:grid-cols-12 items-center pb-14 border-b border-white/10">
+      <div class="lg:col-span-8">
+        <span class="inline-block text-xs font-bold uppercase tracking-wider text-white bg-black px-3 py-1 rounded-md mb-2">Atención directa</span>
+        <h3 class="mt-3 font-display font-extrabold uppercase text-2xl sm:text-3xl lg:text-4xl text-white">¿Listo para darle a tu batería el trato que se merece?</h3>
+        <p class="mt-2.5 text-slate-400 text-base max-w-[50ch]">Envíame fotos o videos de tu instrumento. Te oriento sin costo y te digo con toda honestidad qué trabajo necesita.</p>
+      </div>
+      <div class="lg:col-span-4 flex lg:justify-end">
+        <a data-wa data-contact="whatsapp" href="https://wa.me/18496236350" target="_blank" rel="noopener"
+           class="inline-flex items-center justify-center gap-3 px-8 py-4 bg-celeste text-carbon hover:bg-white font-display font-extrabold uppercase tracking-wider text-base rounded-xl transition-all shadow-lg shadow-sky-500/20 w-full sm:w-auto">
+          Escríbeme por WhatsApp <span class="btn-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- 3 Columnas principales -->
+    <div class="py-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-12 text-[14px]">
+      <!-- Columna 1: Taller y propósito -->
+      <div class="lg:col-span-5">
+        <div class="flex items-center gap-3 mb-4">
+          <svg width="32" height="32" viewBox="0 0 28 28" aria-hidden="true" fill="none" stroke="#38BDF8">
+            <circle cx="14" cy="14" r="9.5" stroke-width="1.6"/>
+            <circle cx="14" cy="14" r="6.5" stroke-width="0.8" stroke-opacity=".5"/>
+            <g stroke="#34D399" stroke-width="1.8" stroke-linecap="square">
+              <path d="M14 1.5v2.2M14 24.3v2.2M1.5 14h2.2M24.3 14h2.2M5.2 5.2l1.5 1.5M21.3 21.3l1.5 1.5M5.2 22.8l1.5-1.5M21.3 6.7l1.5-1.5"/>
+            </g>
+          </svg>
+          <span class="font-display font-extrabold text-2xl uppercase tracking-wider text-white">Bordonera</span>
+        </div>
+        <p class="text-slate-400 leading-relaxed max-w-[36ch]">
+          Mantenimiento preventivo, limpieza profunda, desoxidación de herrajes y afinación acústica en Santo Domingo para bateristas, iglesias, bandas y estudios.
+        </p>
+      </div>
+
+      <!-- Columna 2: Servicios -->
+      <div class="lg:col-span-3">
+        <p class="text-[12px] uppercase tracking-label text-celeste font-semibold mb-4">Servicios</p>
+        <ul class="grid gap-2.5 text-slate-300">
+          <li><a href="#servicios" class="hover:text-white transition-colors">Limpieza Profunda</a></li>
+          <li><a href="#servicios" class="hover:text-white transition-colors">Tratamiento de Óxido</a></li>
+          <li><a href="#servicios" class="hover:text-white transition-colors">Mantenimiento de Herrajes</a></li>
+          <li><a href="#servicios" class="hover:text-white transition-colors">Afinación Acústica</a></li>
+        </ul>
+      </div>
+
+      <!-- Columna 3: Contacto -->
+      <div class="lg:col-span-4">
+        <p class="text-[12px] uppercase tracking-label text-celeste font-semibold mb-4">Contacto Directo</p>
+        <div class="grid gap-3 text-slate-300">
+          <p><span class="text-slate-500 uppercase text-xs tracking-wider block">WhatsApp</span><a data-wa href="https://wa.me/18496236350" target="_blank" rel="noopener" class="text-white hover:text-celeste font-semibold transition-colors">+1 (849) 623-6350</a></p>
+          <p><span class="text-slate-500 uppercase text-xs tracking-wider block">Email</span><a data-contact="email" href="mailto:erickfania@gmail.com" class="text-white hover:text-celeste transition-colors">erickfania@gmail.com</a></p>
+          <p><span class="text-slate-500 uppercase text-xs tracking-wider block">Ubicación</span>Santo Domingo, República Dominicana</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Barra inferior -->
+    <div class="pt-8 border-t border-white/10 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-500 uppercase tracking-wider">
+      <p>Mantenimiento, restauración y afinación de baterías acústicas · Santo Domingo</p>
+      <a href="#top" class="hover:text-celeste transition-colors">Volver arriba ↑</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ BARRA FIJA MÓVIL ============ -->
+<div id="stickyBar" class="sticky-bar lg:hidden fixed inset-x-0 bottom-0 z-40 bg-carbon border-t border-white/15">
+  <a data-wa href="https://wa.me/18496236350" target="_blank" rel="noopener"
+     class="flex items-center justify-between h-14 px-4 font-display font-extrabold uppercase tracking-wider text-lg text-bronce">
+    <span><span class="text-[11px] font-sans font-normal tracking-label text-acero mr-2 align-middle">¿Tienes fotos?</span>Quiero consultar</span>
+    <span class="btn-arrow" aria-hidden="true">→</span>
+  </a>
+</div>
+
+
+<!-- =========================================================
+     CONFIGURACIÓN — edita solo este bloque
+     ========================================================= -->
+<script>
+  const CONFIG = {
+        whatsapp: '18496236350',
+    whatsappVisible: '+1 (849) 623-6350',
+    telefono: '+18496236350',
+    telefonoVisible: '+1 (849) 623-6350',
+    instagram: '',   // [PENDIENTE] usuario sin @; vacío = la fila no se muestra
+    email: 'erickfania@gmail.com',
+    mensaje: 'Hola, vi tus trabajos de mantenimiento de baterías y quisiera consultar sobre mi batería. Tengo algunas fotos para enviarte.'
+  };
+
+  /* CASOS DE ÉXITO — agrega un objeto por trabajo terminado (el más reciente primero).
+     Cada foto: src (1024px), src640 (versión ligera), etiqueta corta y alt descriptivo. */
+  const CASOS = [
+    {
+      titulo: 'Restauración de kit económico deteriorado',
+      lugar: 'Santo Domingo',
+      resumen: 'Cascos con el acabado original deteriorado. Se llevaron a un nuevo acabado verde mate con trazos a mano y se volvió a montar el kit.',
+      fotos: [
+        { src: 'img/before-1024.webp', src640: 'img/before-640.webp', etiqueta: 'Antes', alt: 'Cascos antes del trabajo: uno de madera desnuda y manchada, otro con acabado burdeos gastado.' },
+        { src: 'img/set-after-1-1024.webp', src640: 'img/set-after-1-640.webp', etiqueta: 'Cascos terminados', alt: 'Cascos con el nuevo acabado verde mate, antes del montaje completo.' },
+        { src: 'img/bombo-after-1024.webp', src640: 'img/bombo-after-640.webp', etiqueta: 'Interior del bombo', alt: 'Interior del bombo con tratamiento acústico de espuma a lo largo del casco.' },
+        { src: 'img/tom-inside.webp', src640: 'img/tom-inside.webp', etiqueta: 'Interior del tom de 12"', alt: 'Interior del tom de 12".' }
+      ],
+      inicial: 0,
+      trabajos: ['Remoción del acabado anterior', 'Nuevo acabado verde mate con trazos a mano', 'Tratamiento acústico interior del bombo', 'Montaje de herrajes y aros']
+    },
+
+    //Caso de herrajes
+    {
+      titulo: 'Herrajes de soporte y pedal',
+      lugar: 'Santo Domingo',
+      resumen: 'Remoción del óxido acumulado debido a los años y lubricación',
+      fotos: [
+        { src: 'img/pedal-before.webp', src640: 'img/pedal-before.webp', etiqueta: 'Pedal antes', alt: 'Pedal oxidado y desmontado.' },
+        { src: 'img/pedal.webp', src640: 'img/pedal.webp', etiqueta: 'Pedal restaurado y pintado', alt: 'Pedal restaurado y pintado.' },
+        { src: 'img/stand-bottom.webp', src640: 'img/stand-bottom.webp', etiqueta: 'Stand de platillo antes', alt: 'stand de platillo antes.' },
+        { src: 'img/stand-high.webp', src640: 'img/stand-high.webp', etiqueta: 'Stand de platillo pulido y limpio', alt: 'Stand de platillo pulido y limpio.' }
+      ],
+      inicial: 0,
+      trabajos: ['Limpieza profunda', 'Remoción del óxido y pulido', 'Aplicación de lubricante']
+    }
+  ];
+</script>
+
+<script>
+(() => {
+  document.documentElement.classList.add('js');
+  const $ = (s, c = document) => c.querySelector(s);
+  const $$ = (s, c = document) => [...c.querySelectorAll(s)];
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* --- Video del hero: aparece solo cuando realmente reproduce --- */
+  const video = $('#heroVideo');
+  if (video) {
+    const saveData = navigator.connection && navigator.connection.saveData;
+    if (reduce || saveData) { video.removeAttribute('autoplay'); video.pause(); video.remove(); }
+    else {
+      video.addEventListener('playing', () => video.classList.add('is-playing'), { once: true });
+      const p = video.play(); if (p && p.catch) p.catch(() => {});
+    }
+  }
+
+  /* --- Enlaces de contacto --- */
+  const wa = (msg) => `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg || CONFIG.mensaje)}`;
+  const bindWa = (root = document) => $$('[data-wa]', root).forEach(a => { a.href = wa(a.dataset.msg); });
+  bindWa();
+  const c = (k) => $(`[data-contact="${k}"]`);
+  if (c('telefono')) { c('telefono').href = `tel:${CONFIG.telefono}`; c('telefono').textContent = CONFIG.telefonoVisible; }
+  if (c('instagram') && !CONFIG.instagram) c('instagram').closest('div').hidden = true;
+  else if (c('instagram')) { c('instagram').href = `https://instagram.com/${CONFIG.instagram}`; c('instagram').textContent = '@' + CONFIG.instagram; }
+  if (c('email')) c('email').href = `mailto:${CONFIG.email}`;
+
+  /* --- Navbar --- */
+  const nav = $('#nav');
+  const menuBtn = $('#menuBtn'), menu = $('#menuMovil');
+  const onScroll = () => nav.classList.toggle('nav-solid', window.scrollY > 40 || !menu.hidden);
+  menuBtn.addEventListener('click', () => {
+    const open = menu.hidden;
+    menu.hidden = !open;
+    menuBtn.setAttribute('aria-expanded', String(open));
+    menuBtn.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+    onScroll();
+  });
+  $$('a', menu).forEach(a => a.addEventListener('click', () => { menu.hidden = true; menuBtn.setAttribute('aria-expanded', 'false'); onScroll(); }));
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* --- Before / After --- */
+  $$('[data-ba]').forEach(box => {
+    const range = $('input[type=range]', box);
+    const lblAntes = $('[data-ba-label="antes"]', box);
+    const lblDespues = $('[data-ba-label="despues"]', box);
+    const set = (p) => {
+      p = Math.max(0, Math.min(100, p));
+      box.style.setProperty('--pos', p + '%');
+      range.value = Math.round(p);
+      range.setAttribute('aria-valuetext', `${Math.round(p)}% antes`);
+      if (lblAntes) lblAntes.style.opacity = p <= 5 ? '0' : '1';
+      if (lblDespues) lblDespues.style.opacity = p >= 95 ? '0' : '1';
+    };
+    let dragging = false, startX = 0, startY = 0, decided = false;
+    const fromEvent = (e) => { const r = box.getBoundingClientRect(); return (e.clientX - r.left) / r.width * 100; };
+    box.addEventListener('pointerdown', e => {
+      dragging = true; decided = e.pointerType !== 'touch'; startX = e.clientX; startY = e.clientY;
+      if (decided) { box.setPointerCapture(e.pointerId); set(fromEvent(e)); }
+    });
+    box.addEventListener('pointermove', e => {
+      if (!dragging) return;
+      if (!decided) {
+        const dx = Math.abs(e.clientX - startX), dy = Math.abs(e.clientY - startY);
+        if (dx < 6 && dy < 6) return;
+        if (dy > dx) { dragging = false; return; }   // gesto vertical: dejar hacer scroll
+        decided = true; box.setPointerCapture(e.pointerId);
+      }
+      set(fromEvent(e));
+    });
+    const end = (e) => { if (dragging && !decided && e.type === 'pointerup') set(fromEvent(e)); dragging = false; };
+    box.addEventListener('pointerup', end);
+    box.addEventListener('pointercancel', end);
+    range.addEventListener('input', () => set(+range.value));
+    set(50);
+  });
+
+  /* --- Casos de éxito --- */
+  const lista = $('#casosLista'), tpl = $('#casoTpl');
+  CASOS.forEach((caso, i) => {
+    const el = tpl.content.firstElementChild.cloneNode(true);
+    $('.caso-num', el).textContent = String(i + 1).padStart(2, '0');
+    $('.caso-lugar', el).textContent = caso.lugar || '';
+    $('.caso-titulo', el).textContent = caso.titulo;
+    $('.caso-resumen', el).textContent = caso.resumen || '';
+    const frame = $('.caso-frame', el), etapas = $('.caso-etapas', el);
+    const imgs = caso.fotos.map((f, k) => {
+      const im = new Image(1024, 1024);
+      im.src = f.src; im.srcset = `${f.src640} 640w, ${f.src} 1024w`; im.sizes = '(min-width:1024px) 60vw, 100vw';
+      im.alt = f.alt; im.loading = 'lazy'; im.decoding = 'async';
+      im.className = 'absolute inset-0 w-full h-full object-contain transition-opacity duration-500';
+      im.id = `caso${i}-foto${k}`;
+      frame.append(im);
+      return im;
+    });
+    const tabs = caso.fotos.map((f, k) => {
+      const b = document.createElement('button');
+      b.type = 'button'; b.setAttribute('role', 'tab'); b.setAttribute('aria-controls', `caso${i}-foto${k}`);
+      b.className = 'etapa text-left rounded-xl overflow-hidden border border-tinta/15 hover:border-tinta transition-colors';
+      b.innerHTML = `<span class="block aspect-square bg-white overflow-hidden"><img src="${f.src640}" alt="" width="640" height="640" loading="lazy" class="w-full h-full object-contain"></span><span class="block px-1.5 sm:px-2 py-1.5 text-[9px] sm:text-[10px] xl:text-[11px] uppercase tracking-[0.12em] leading-tight"></span>`;
+      b.lastElementChild.textContent = f.etiqueta;
+      b.addEventListener('click', () => show(k));
+      etapas.append(b);
+      return b;
+    });
+    const show = (k) => {
+      imgs.forEach((im, j) => { im.style.opacity = j === k ? 1 : 0; im.setAttribute('aria-hidden', String(j !== k)); });
+      tabs.forEach((t, j) => { t.setAttribute('aria-selected', String(j === k)); t.classList.toggle('etapa-on', j === k); });
+    };
+    show(caso.inicial ?? caso.fotos.length - 1);
+    caso.trabajos.forEach(t => { const li = document.createElement('li'); li.className = 'flex gap-3'; li.innerHTML = '<span class="text-broncedeep" aria-hidden="true">—</span>'; li.append(t); $('.caso-trabajos', el).append(li); });
+    lista.append(el);
+  });
+  const prox = $('#proximoNum'); if (prox) prox.textContent = String(CASOS.length + 1).padStart(2, '0');
+
+  /* --- ¿Qué necesita tu batería? --- */
+  const btns = $$('.diag-btn');
+  const isDesk = () => window.matchMedia('(min-width: 1024px)').matches;
+  btns.forEach(b => b.addEventListener('click', () => {
+    const panel = document.getElementById(b.getAttribute('aria-controls'));
+    const wasOpen = b.getAttribute('aria-expanded') === 'true';
+    btns.forEach(o => { o.setAttribute('aria-expanded', 'false'); document.getElementById(o.getAttribute('aria-controls')).hidden = true; o.querySelector('.diag-mark').textContent = '→'; o.classList.remove('text-bronce'); });
+    const open = isDesk() ? true : !wasOpen;
+    b.setAttribute('aria-expanded', String(open));
+    panel.hidden = !open;
+    if (open) { b.querySelector('.diag-mark').textContent = '↓'; b.classList.add('text-bronce'); }
+  }));
+  if (btns[0]) { btns[0].querySelector('.diag-mark').textContent = '↓'; btns[0].classList.add('text-bronce'); }
+
+  /* --- Barra fija móvil: aparece tras el hero, se oculta en el CTA final --- */
+  const bar = $('#stickyBar'), hero = $('#top'), contacto = $('#contacto');
+  let pastHero = false, atContact = false;
+  const upd = () => bar.classList.toggle('on', pastHero && !atContact);
+  if (bar && hero) new IntersectionObserver(([e]) => { pastHero = !e.isIntersecting; upd(); }, { rootMargin: '-40% 0px 0px 0px' }).observe(hero);
+  if (contacto) new IntersectionObserver(([e]) => { atContact = e.isIntersecting; upd(); }).observe(contacto);
+})();
+</script>
+<!-- Control del carrusel: solo se mueve cuando el usuario interactúa -->
+<script>
+  (() => {
+    const track = document.getElementById('casosLista');
+    const prev = document.getElementById('casosPrev');
+    const next = document.getElementById('casosNext');
+    const dots = document.getElementById('casosDots');
+    const actual = document.getElementById('casosActual');
+    const total = document.getElementById('casosTotal');
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const pad = (n) => String(n).padStart(2, '0');
+    const slides = () => [...track.children];
+    let idx = 0;
+
+    const go = (i) => {
+      const s = slides(); if (!s.length) return;
+      idx = Math.max(0, Math.min(s.length - 1, i));
+      track.scrollTo({ left: s[idx].offsetLeft, behavior: reduce ? 'auto' : 'smooth' });
+      paint();
+    };
+
+    const paint = () => {
+      const s = slides();
+      actual.textContent = pad(idx + 1);
+      total.textContent = pad(s.length);
+      prev.disabled = idx <= 0;
+      next.disabled = idx >= s.length - 1;
+      [...dots.children].forEach((d, j) => {
+        d.setAttribute('aria-current', j === idx ? 'true' : 'false');
+        d.firstElementChild.className = 'block h-1 rounded-full transition-all duration-300 ' + (j === idx ? 'w-10 bg-tinta' : 'w-5 bg-tinta/20');
+      });
+      s.forEach((el, j) => { el.setAttribute('aria-label', `Caso ${j + 1} de ${s.length}`); el.inert = j !== idx; });
+    };
+
+    const build = () => {
+      dots.innerHTML = '';
+      slides().forEach((_, j) => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'py-3';                      // área táctil cómoda
+        b.setAttribute('aria-label', `Ver caso ${j + 1}`);
+        b.innerHTML = '<span></span>';
+        b.addEventListener('click', () => go(j));
+        dots.append(b);
+      });
+      dots.hidden = slides().length < 2;
+      prev.parentElement.hidden = slides().length < 2;
+      paint();
+    };
+
+    prev.addEventListener('click', () => go(idx - 1));
+    next.addEventListener('click', () => go(idx + 1));
+    track.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') { e.preventDefault(); go(idx + 1); }
+      if (e.key === 'ArrowLeft')  { e.preventDefault(); go(idx - 1); }
+    });
+
+    // Sincroniza al deslizar con el dedo o el trackpad
+    let t;
+    track.addEventListener('scroll', () => {
+      clearTimeout(t);
+      t = setTimeout(() => {
+        const s = slides(); if (!s.length) return;
+        let best = 0, dist = Infinity;
+        s.forEach((el, j) => { const d = Math.abs(el.offsetLeft - track.scrollLeft); if (d < dist) { dist = d; best = j; } });
+        if (best !== idx) { idx = best; paint(); }
+      }, 80);
+    }, { passive: true });
+
+    // Los casos se insertan después (script de CASOS): reconstruir al aparecer
+    new MutationObserver(build).observe(track, { childList: true });
+    window.addEventListener('resize', () => go(idx));
+    build();
+  })();
+</script>
+</body>
+</html>
